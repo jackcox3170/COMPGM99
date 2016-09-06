@@ -256,9 +256,9 @@ def xgb_feature_importance_plot(xgbc, X_train):
 def rfc_cv(X_train, y_train, n_folds = 3):
 
     #specify parameter grid to search
-    min_samples_leaf_range = [1]#[1, 5, 10, 15, 20]    
-    n_estimators_range = [500]#[50, 100, 200, 300, 400, 500]
-    max_depth_range = [10]#[4, 6, 8, 10]
+    min_samples_leaf_range = [1, 5, 10, 15, 20]    
+    n_estimators_range = [50, 100, 200, 300, 400, 500]
+    max_depth_range = [4, 6, 8, 10]
     param_grid = dict(min_samples_leaf = min_samples_leaf_range, n_estimators = n_estimators_range, max_depth = max_depth_range)
     
     #fit grid search model
