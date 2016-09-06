@@ -460,12 +460,12 @@ if __name__ == "__main__":
 
     print(datetime.now() - start_time)
 
-#%% RFC feature importance for each frequency
-plt.plot(rfc.feature_importances_[::-1])
-plt.title('Feature importance of different frequencies')
-plt.ylabel('Feature Importance')
-plt.xlabel('Frequency (kHz)')
-plt.xticks(range(0,4200,200*4095/1000), range(0,1050,200))
+##%% RFC feature importance for each frequency
+#plt.plot(rfc.feature_importances_[::-1])
+#plt.title('Feature importance of different frequencies')
+#plt.ylabel('Feature Importance')
+#plt.xlabel('Frequency (kHz)')
+#plt.xticks(range(0,4200,200*4095/1000), range(0,1050,200))
 
 
 
