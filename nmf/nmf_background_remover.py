@@ -6,6 +6,8 @@ Created on Thu Aug 04 16:39:58 2016
 """
 
 ### Removes background from HF files
+### Removes samples of 'no appliance' data
+### Removes data with ambiguous label 'ignore'
 
 import numpy as np
 import pandas as pd
@@ -92,52 +94,49 @@ if __name__ == "__main__":
 
 
 
-#%% Remove ignore for classifier
-#%% Spectrogram
-
-directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/downsampled'
-os.chdir(directory)    
-
-X = pd.DataFrame(np.load('HF_train_2.npy').transpose())
-y = pd.Series(np.load('appliance_labels.npy'))
-
-newX, newy = ignore_data_remover(X,y)
-
-np.save('specX_no_ignore', newX)
-np.save('y_no_ignore', newy)
-
-#%% PCA
-X = pd.DataFrame(np.load('pca_weights.npy'))
-newX, newy = ignore_data_remover(X,y)
-np.save('pcaX_no_ignore', newX)
-
-
-
-
-#%% NMF
-directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/no_background/downsampled'
-os.chdir(directory)    
-
-X = pd.DataFrame(np.load('nmf_weights_no_background.npy'))
-y = pd.Series(np.load('appliance_labels.npy'))
-
-newX, newy = ignore_data_remover(X,y)
-
-np.save('nmfX_no_ignore', newX)
-np.save('y_no_ignore', newy)
-
-#%% NMF (no background)
-
-directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/downsampled'
-os.chdir(directory)    
-
-X = pd.DataFrame(np.load('nmf_weights.npy'))
-y = pd.Series(np.load('appliance_labels.npy'))
-
-newX, newy = ignore_data_remover(X,y)
-
-np.save('nmfX_no_ignore', newX)
-np.save('y_no_ignore', newy)
+    #%% Remove ignore for classifier
+    #%% Spectrogram
+    
+    directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/downsampled'
+    os.chdir(directory)    
+    
+    X = pd.DataFrame(np.load('HF_train_2.npy').transpose())
+    y = pd.Series(np.load('appliance_labels.npy'))
+    
+    newX, newy = ignore_data_remover(X,y)
+    
+    np.save('specX_no_ignore', newX)
+    np.save('y_no_ignore', newy)
+    
+    #%% PCA
+    X = pd.DataFrame(np.load('pca_weights.npy'))
+    newX, newy = ignore_data_remover(X,y)
+    np.save('pcaX_no_ignore', newX)
+    
+    #%% NMF
+    directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/no_background/downsampled'
+    os.chdir(directory)    
+    
+    X = pd.DataFrame(np.load('nmf_weights_no_background.npy'))
+    y = pd.Series(np.load('appliance_labels.npy'))
+    
+    newX, newy = ignore_data_remover(X,y)
+    
+    np.save('nmfX_no_ignore', newX)
+    np.save('y_no_ignore', newy)
+    
+    #%% NMF (no background)
+    
+    directory = 'C:/Users/Jack/Desktop/ubuntu_share/kaggle_belkin/H3_CSV/numpy/downsampled'
+    os.chdir(directory)    
+    
+    X = pd.DataFrame(np.load('nmf_weights.npy'))
+    y = pd.Series(np.load('appliance_labels.npy'))
+    
+    newX, newy = ignore_data_remover(X,y)
+    
+    np.save('nmfX_no_ignore', newX)
+    np.save('y_no_ignore', newy)
 
 
 
